@@ -1,0 +1,23 @@
+name: setup
+
+inputs:
+  NODE_VERSION:
+    required: true
+    default: 22.7.0
+  PNPM_VERSION:
+    required: true
+    default: 9.9.0
+
+runs:
+  using: "composite"
+  steps:
+    - uses: ConorMacBride/install-package@v1
+      with:
+        apt: just
+    - uses: pnpm/action-setup@v4
+      with:
+        version: ${{ inputs.PNPM_VERSION }}
+    - uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.NODE_VERSION }}
+        cache: pnpm
