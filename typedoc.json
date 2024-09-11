@@ -1,0 +1,19 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPointStrategy": "packages",
+  "entryPoints": [
+    "./libs/*"
+  ],
+  "visibilityFilters": {},
+  "packageOptions": {
+    "includeVersion": true,
+    "entryPoints": [
+      "src/index.ts"
+    ],
+    "projectDocuments": [
+      "README.md"
+    ]
+  },
+  "plugin": ["typedoc-material-theme"],
+  "themeColor": "#234361"
+}

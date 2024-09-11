@@ -1,0 +1,86 @@
+name: main
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/setup
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+      - run: just install
+      - uses: pre-commit/action@v3.0.1
+
+  docs-publish:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/setup
+      - run: just install
+      - run: just docs-build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  docs-deploy:
+    runs-on: ubuntu-24.04
+    needs: docs-publish
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  ts-standard-type-check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/setup
+      - run: just ts-standard-install
+      - run: just ts-standard-type-check
+
+  ts-standard-test-cov:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/setup
+      - run: just ts-standard-install
+      - run: just ts-standard-test-cov
+
+  libs-publish:
+    runs-on: ubuntu-24.04
+    needs:
+      - lint
+      - ts-standard-type-check
+      - ts-standard-test-cov
+    permissions:
+      contents: write
+      packages: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/setup
+      - run: just ts-standard-install
+      - run: |
+          cat << EOF > "$HOME/.npmrc"
+            @jacksonneal:registry=https://npm.pkg.github.com/
+            //npm.pkg.github.com/:_authToken=$GITHUB_TOKEN
+          EOF
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: changesets/action@v1
+        with:
+          version: pnpm changeset version && pnpm changeset tag
+          publish: pnpm publish -r
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: git push --follow-tags
