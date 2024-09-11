@@ -1,0 +1,17 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPointStrategy": "packages",
+  "entryPoints": [
+    "./libs/*"
+  ],
+  "includeVersion": true,
+  "visibilityFilters": {},
+  "packageOptions": {
+    "entryPoints": [
+      "src/index.ts"
+    ],
+    "projectDocuments": [
+      "README.md"
+    ]
+  }
+}
