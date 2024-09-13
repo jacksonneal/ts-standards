@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/package.json",
   "name": "@jacksonneal/ts-standard",
   "description": "TypeScript utilities",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "main": "./dist/ts-standard.js",
   "types": "./dist/src/index.d.ts",
