@@ -79,6 +79,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: changesets/action@v1
         with:
-          publish: pnpm publish -r --access restricted --no-git-checks --registry https://npm.pkg.github.com/
+          publish: pnpm publish -r --access restricted
+          # publish: pnpm publish -r --access restricted --no-git-checks --registry https://npm.pkg.github.com/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
