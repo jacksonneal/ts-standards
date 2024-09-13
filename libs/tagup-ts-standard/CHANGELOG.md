@@ -1,5 +1,12 @@
 # @jacksonneal/tagup-ts-standard
 
+## 0.1.2
+
+### Patch Changes
+
+- 30d9736: Testing
+- b2e4440: Test again
+
 ## 0.1.1
 
 ### Patch Changes
