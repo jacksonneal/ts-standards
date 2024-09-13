@@ -18,8 +18,8 @@ docs-build:
 install:
 	@pnpm install
 
-version-rc:
-	@pnpm version prerelease --preid=rc
+change:
+	@pnpm changeset
 
 workspace *args='':
 	@pnpm workspace $@

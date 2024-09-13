@@ -70,13 +70,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/workflows/setup
       - run: just ts-standard-install
-      # - run: |
-      #     cat << EOF > "$HOME/.npmrc"
-      #       @jacksonneal:registry=https://npm.pkg.github.com/
-      #       //npm.pkg.github.com/:_authToken=$GITHUB_TOKEN
-      #     EOF
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          cat << EOF > "$HOME/.npmrc"
+            @jacksonneal:registry=https://npm.pkg.github.com/
+            //npm.pkg.github.com/:_authToken=$GITHUB_TOKEN
+          EOF
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: changesets/action@v1
         with:
           publish: pnpm publish -r --access restricted --no-git-checks --registry https://npm.pkg.github.com/
