@@ -4,7 +4,7 @@
  * @module
  */
 
-import { isNonNullable } from "@/filter";
+import { isNonNullable } from "@";
 
 import { is } from "./shared.ex";
 

@@ -4,7 +4,7 @@
  * @module
  */
 
-import { Nullable, Opt } from "@/type";
+import { Nullable, Opt } from "@";
 
 import { is } from "./shared.ex";
 

@@ -4,7 +4,7 @@
  * @module
  */
 
-import { Nullable } from "@/type";
+import { Nullable } from "@";
 
 /**
  * Check if a value is not `null` and not `undefined`.
