@@ -81,5 +81,6 @@ jobs:
         with:
           publish: pnpm publish -r --access restricted
           # publish: pnpm publish -r --access restricted --no-git-checks --registry https://npm.pkg.github.com/
+          # try something
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
