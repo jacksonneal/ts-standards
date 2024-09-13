@@ -2,10 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/package.json",
   "name": "@jacksonneal/ts-standard",
   "description": "TypeScript utilities",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "main": "./dist/ts-standard.js",
-  "types": "./dist/src/index.d.ts",
+  "typings": "./dist/src/index.d.ts",
   "scripts": {
     "type-check": "tsc",
     "test": "vitest run",

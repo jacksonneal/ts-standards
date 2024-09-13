@@ -1,5 +1,11 @@
 # @jacksonneal/ts-standard
 
+## 0.0.3
+
+### Patch Changes
+
+- fix type release
+
 ## 0.0.2
 
 ### Patch Changes
