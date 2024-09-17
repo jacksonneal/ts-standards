@@ -9,7 +9,8 @@
     "lint-fix": "eslint --fix .",
     "docs-build": "typedoc",
     "workspace": "pnpm -w",
-    "ts-standard": "pnpm --filter ts-standard"
+    "ts-standard": "pnpm --filter ts-standard",
+    "ci:version": "pnpm changeset version && pnpm changeset tag"
   },
   "engines": {
     "node": ">=22.7.0",

@@ -79,7 +79,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: changesets/action@v1
         with:
-          version: pnpm changeset version && pnpm changeset tag
+          version: pnpm ci:version
           publish: pnpm publish -r
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
