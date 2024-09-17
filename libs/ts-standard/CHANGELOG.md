@@ -1,5 +1,11 @@
 # @jacksonneal/ts-standard
 
+## 0.0.2
+
+### Patch Changes
+
+- ca5b8e7: test
+
 ## 0.0.1
 
 ### Patch Changes
