@@ -10,7 +10,8 @@
     "docs-build": "typedoc",
     "workspace": "pnpm -w",
     "ts-standard": "pnpm --filter ts-standard",
-    "ci:version": "pnpm changeset version && pnpm changeset tag"
+    "ci:version": "pnpm changeset version && pnpm changeset tag",
+    "ci:publish": "pnpm publish -r && git push --folow-tags"
   },
   "engines": {
     "node": ">=22.7.0",
