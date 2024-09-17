@@ -1,5 +1,11 @@
 # @jacksonneal/ts-standard
 
+## 0.0.3
+
+### Patch Changes
+
+- 1b9e2fe: test
+
 ## 0.0.2
 
 ### Patch Changes
