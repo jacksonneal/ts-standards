@@ -11,6 +11,8 @@ import { is } from "./shared.ex";
 // Opt<T>
 is<Opt<string>>("hello");
 is<Opt<string>>(null);
+// @ts-expect-error `undefined` is not `Opt`
+is<Opt<string>>(undefined);
 
 // Nullable<T>
 is<Nullable<string>>("hello");
