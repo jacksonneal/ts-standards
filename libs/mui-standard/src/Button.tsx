@@ -1,7 +1,10 @@
+import Button from '@mui/material/Button';
 import React from 'react';
 
-export const Button: React.FC = () => (
+const SdButton: React.FC = () => (
   <div>
-    <button type="button">Hello World</button>
+    <Button variant="contained">Click Me</Button>
   </div>
 );
+
+export default SdButton;

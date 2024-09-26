@@ -5,7 +5,7 @@
   "version": "0.0.3",
   "type": "module",
   "main": "./dist/ts-standard.js",
-  "typings": "./dist/src/index.d.ts",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "type-check": "tsc",
     "test": "vitest run",

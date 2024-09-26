@@ -12,12 +12,12 @@
         "./src"
       ]
     },
-    "jsx": "react",
     "moduleResolution": "bundler",
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
     "allowJs": false,
+    "jsx": "react",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
