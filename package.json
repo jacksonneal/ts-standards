@@ -10,6 +10,7 @@
     "docs-build": "typedoc",
     "workspace": "pnpm -w",
     "ts-standard": "pnpm --filter ts-standard",
+    "mui-standard": "pnpm --filter mui-standard",
     "ci:version": "pnpm changeset version",
     "ci:publish": "pnpm changeset tag && pnpm publish -r"
   },
@@ -23,6 +24,11 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "typedoc": "^0.26.7",
     "typedoc-material-theme": "^1.1.0",
-    "typescript-eslint": "^8.5.0"
+    "typescript-eslint": "^8.5.0",
+    "vite": "^5.4.3",
+    "vite-plugin-dts": "^4.2.1"
+  },
+  "dependencies": {
+    "typescript": "^5.6.2"
   }
 }
