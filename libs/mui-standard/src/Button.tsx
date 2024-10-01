@@ -3,7 +3,7 @@ import React from 'react';
 
 const SdButton: React.FC = () => (
   <div>
-    <Button variant="contained">Click Me</Button>
+    <Button variant="contained" color="primary">Click Me!?!</Button>
   </div>
 );
 
