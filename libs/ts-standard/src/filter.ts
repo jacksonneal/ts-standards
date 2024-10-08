@@ -4,7 +4,7 @@
  * @module
  */
 
-import { Nullable } from "@";
+import { NonNullableKeys, Nullable } from "@";
 
 /**
  * Check if a value is not `null` and not `undefined`.
@@ -22,4 +22,25 @@ import { Nullable } from "@";
  */
 export function isNonNullable<T>(value: Nullable<T>): value is NonNullable<T> {
   return value != null;
+}
+
+/**
+ * Check if an object has `NonNullable` values for the given keys.
+ *
+ * @typeParam T - type of value to check
+ *
+ * @param keys - to check values of
+ * @returns - function to check a given value
+ *
+ * @example
+ * interface Hello { hello: Nullable<string>; };
+ * const isString = isNonNullableKeys<Hello>(["hello"])({ hello: "hello" }); // true
+ * const isNull = isNonNullableKeys<Hello>(["hello"])({ hello: null }); // false
+ * const isUndefined = isNonNullableKeys<Hello>(["hello"])({ hello: undefined }); // false
+ */
+export function isNonNullableKeys<T, K extends keyof T = keyof T>(
+  keys: K[]
+): (value: T) => value is NonNullableKeys<Pick<T, K>> & T {
+  return (value: T): value is NonNullableKeys<Pick<T, K>> & T =>
+    keys.every((key) => isNonNullable(value[key]));
 }

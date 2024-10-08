@@ -27,3 +27,16 @@ export type Opt<T> = T | null;
  * const nullableUndefined: Nullable<string> = undefined;
  */
 export type Nullable<T> = Opt<T> | undefined;
+
+/**
+ * Type that maps all properties in `T` to `NonNullable`
+ *
+ * @typeParam T - type to map
+ *
+ * @example
+ * interface Hello { hello: Nullable<string>; };
+ * type HelloNonNullableKeys = NonNullableKeys<Hello>; // { hello: string; }
+ */
+export type NonNullableKeys<T> = {
+  [K in keyof T]: NonNullable<T[K]>;
+};
