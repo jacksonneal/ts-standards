@@ -5,4 +5,4 @@
  */
 
 export { isNonNullable } from './filter';
-export type { Nullable, Opt } from './type';
+export type { NonNullableKeys, Nullable, Opt } from './type';
