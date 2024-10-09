@@ -35,7 +35,7 @@ export type Nullable<T> = Opt<T> | undefined;
  *
  * @example
  * interface Hello { hello: Nullable<string>; };
- * type HelloNonNullableKeys = NonNullableKeys<Hello>; // { hello: string; }
+ * type HelloNonNullableKeys = NonNullableKeys<Hello>; // { hello: string; };
  */
 export type NonNullableKeys<T> = {
   [K in keyof T]: NonNullable<T[K]>;
