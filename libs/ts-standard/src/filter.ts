@@ -28,6 +28,7 @@ export function isNonNullable<T>(value: Nullable<T>): value is NonNullable<T> {
  * Check if an object has `NonNullable` values for the given keys.
  *
  * @typeParam T - type of value to check
+ * @typeParam K - keys of `T` to check
  *
  * @param keys - to check values of
  * @returns - function to check a given value
@@ -41,6 +42,10 @@ export function isNonNullable<T>(value: Nullable<T>): value is NonNullable<T> {
 export function isNonNullableKeys<T, K extends keyof T = keyof T>(
   keys: K[]
 ): (value: T) => value is NonNullableKeys<Pick<T, K>> & T {
+  /**
+   * @param value - value to check
+   * @returns whether value has non-nullable entries for all given keys
+   */
   return (value: T): value is NonNullableKeys<Pick<T, K>> & T =>
     keys.every((key) => isNonNullable(value[key]));
 }
