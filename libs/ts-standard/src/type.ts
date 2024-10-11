@@ -17,7 +17,7 @@ export type Opt<T> = T | null;
 
 /**
  * Nullable type that may be `Opt<T>` or `undefined`,
- * opposite of the typescript builtin `NonNullable<T>`
+ * opposite of the TypeScript builtin `NonNullable<T>`
  *
  * @typeParam T - non-null type
  *
