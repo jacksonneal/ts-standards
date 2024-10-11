@@ -1,5 +1,12 @@
 # @jacksonneal/ts-standard
 
+## 0.0.4
+
+### Patch Changes
+
+- e88543b: testing
+- 3b9f642: 0.0.4
+
 ## 0.0.3
 
 ### Patch Changes
