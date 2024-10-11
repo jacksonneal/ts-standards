@@ -8,9 +8,7 @@ import { describe } from 'node:test';
 
 import { expect, test } from 'vitest'
 
-import { isNonNullable, Nullable } from '@';
-
-import { isNonNullableKeys } from '../src/filter';
+import { isNonNullable, isNonNullableKeys, Nullable } from '@';
 
 void describe('isNonNullable', () => {
   test.each([
