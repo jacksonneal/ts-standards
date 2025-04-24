@@ -1,0 +1,16 @@
+name: pr
+
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Hello"
