@@ -1,4 +1,4 @@
---
+---
 "@jacksonneal/ts-standard": patch
 ---
 
