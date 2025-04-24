@@ -47,10 +47,6 @@ ts-standard-build:
 
 sign-release:
 	git fetch
-	git switch changeset-release/main
-	git reset --hard origin/changeset-release/main
 	git reset --soft origin/main
 	git commit -am "release"
-	git push -f
-	git switch -
-	git branch -D changeset-release/main
+	git push -u origin changeset-release/main
