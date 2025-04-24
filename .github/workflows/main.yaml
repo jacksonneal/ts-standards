@@ -103,3 +103,5 @@ jobs:
           publish: pnpm ci:publish
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - run: just sign-release
