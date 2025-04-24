@@ -81,6 +81,11 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
 
+      - name: Set Git Author to App Identity
+        run: |
+          git config --global user.name "ci-pr-bot[bot]"
+          git config --global user.email "ci-pr-bot[bot]@users.noreply.github.com"
+
       - uses: ./.github/workflows/setup
       - run: just ts-standard-install
       - run: |
@@ -92,6 +97,7 @@ jobs:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
       - uses: changesets/action@v1
         with:
+          setupGitUser: false
           version: pnpm ci:version
           publish: pnpm ci:publish
         env:
