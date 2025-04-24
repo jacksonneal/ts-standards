@@ -87,6 +87,7 @@ jobs:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
       - uses: changesets/action@v1
         with:
+          setupGitUser: false
           version: pnpm ci:version
           publish: pnpm ci:publish
         env:
