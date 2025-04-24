@@ -76,6 +76,11 @@ jobs:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
 
+      - name: Who am I?
+        run: gh auth status
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
       - uses: ./.github/workflows/setup
       - run: just ts-standard-install
       - run: |
@@ -87,7 +92,6 @@ jobs:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
       - uses: changesets/action@v1
         with:
-          setupGitUser: false
           version: pnpm ci:version
           publish: pnpm ci:publish
         env:
