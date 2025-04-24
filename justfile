@@ -49,4 +49,4 @@ sign-release:
 	git fetch
 	git reset --soft origin/main
 	git commit -am "release"
-	git push -u origin changeset-release/main
+	git push -u origin changeset-release/main -f
