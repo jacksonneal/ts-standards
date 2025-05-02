@@ -77,7 +77,7 @@ jobs:
             //npm.pkg.github.com/:_authToken=$GITHUB_TOKEN
           EOF
         env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: changesets/action@v1
         with:
@@ -85,7 +85,7 @@ jobs:
           version: pnpm ci:version
           publish: pnpm ci:publish
         env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   sign-release:
     runs-on: ubuntu-24.04
