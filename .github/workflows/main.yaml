@@ -114,4 +114,5 @@ jobs:
           git config --global user.name "ci-pr-bot[bot]"
           git config --global user.email "ci-pr-bot[bot]@users.noreply.github.com"
 
+      - uses: ./.github/workflows/setup
       - run: just sign-release
