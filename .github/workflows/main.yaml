@@ -81,7 +81,6 @@ jobs:
 
       - uses: changesets/action@v1
         with:
-          setupGitUser: false
           version: pnpm ci:version
           publish: pnpm ci:publish
         env:
