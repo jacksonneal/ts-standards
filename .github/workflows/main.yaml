@@ -69,23 +69,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # - name: Authenticate with GitHub App
-      #   id: app-token
-      #   uses: tibdex/github-app-token@v2
-      #   with:
-      #     app_id: ${{ secrets.APP_ID }}
-      #     private_key: ${{ secrets.APP_PRIVATE_KEY }}
-      #
-      # - name: Who am I?
-      #   run: gh auth status
-      #   env:
-      #     GH_TOKEN: ${{ steps.app-token.outputs.token }}
-      #
-      # - name: Set Git Author to App Identity
-      #   run: |
-      #     git config --global user.name "ci-pr-bot[bot]"
-      #     git config --global user.email "ci-pr-bot[bot]@users.noreply.github.com"
-
       - uses: ./.github/workflows/setup
       - run: just ts-standard-install
       - run: |
@@ -98,10 +81,38 @@ jobs:
 
       - uses: changesets/action@main
         with:
+          setupGitUser: false
           version: pnpm ci:version
           publish: pnpm ci:publish
-          commitMode: github-api
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+  sign-release:
+    runs-on: ubuntu-24.04
+    needs:
+      - libs-publish
+    permissions:
+      contents: write
+      packages: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Authenticate with GitHub App
+        id: app-token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Who am I?
+        run: gh auth status
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Set Git Author to App Identity
+        run: |
+          git config --global user.name "ci-pr-bot[bot]"
+          git config --global user.email "ci-pr-bot[bot]@users.noreply.github.com"
 
       - run: just sign-release
