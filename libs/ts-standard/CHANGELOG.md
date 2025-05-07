@@ -1,5 +1,15 @@
 # @jacksonneal/ts-standard
 
+## 0.0.4
+
+### Patch Changes
+
+- 3fa0b34: CI
+- ccd33d8: CI part 2
+- e88543b: testing
+- 4821374: CI part 2
+- 3b9f642: 0.0.4
+
 ## 0.0.3
 
 ### Patch Changes
