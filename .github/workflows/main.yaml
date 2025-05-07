@@ -79,6 +79,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Authenticate with GitHub App
+        id: app-token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - uses: changesets/action@v1
         with:
           version: pnpm ci:version
@@ -86,7 +93,7 @@ jobs:
           setupGitUser: false
           commitMode: github-api
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
   # sign-release:
   #   runs-on: ubuntu-24.04
