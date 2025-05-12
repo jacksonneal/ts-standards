@@ -91,7 +91,7 @@ jobs:
           version: pnpm ci:version
           publish: pnpm ci:publish
           setupGitUser: false
-          commitMode: github-api
+          # commitMode: github-api
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
